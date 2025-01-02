@@ -1,2 +1,5 @@
 # Convolutional-Neural-Nets
-A short project with notebooks and for cnn's.
+A short project.
+
+Images sourced from: 
+https://www.pexels.com/
