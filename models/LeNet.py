@@ -73,7 +73,21 @@ class LeNet(nn.Module):
                                 else:
                                         print(f"Epoch: {epoch}, Loss: {loss.item()}")
         
-                
+
+        def test(self,
+            testloader,
+            accuracy_fn=None,
+            device='cpu'):
+                self.to(device)
+                self.eval()
+                with torch.inference_mode():
+                        for batch, (X, y) in enumerate(testloader):
+                                X, y = X.to(device), y.to(device)
+                                y_pred = torch.argmax(nn.Softmax(self(X), dim=1), dim=1)
+                                acc = accuracy_fn(y, y_pred)
+                                print(f"Accuracy: {acc}")
+
+              
         def eval(self, testloader, accuracy_fn=None):
                 self.eval()
                 return {"Name": self.__class__.__name__,

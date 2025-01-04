@@ -119,7 +119,7 @@ class AlexNet(nn.Module):
                 X, y = X.to(device), y.to(device)
                 y_pred = torch.argmax(nn.Softmax(self(X), dim=1), dim=1)
                 acc = accuracy_fn(y, y_pred)
-            print(f"Accuracy: {acc}")
+                print(f"Accuracy: {acc}")
 
     def eval(self, testloader, accuracy_fn=None):
         self.eval()
