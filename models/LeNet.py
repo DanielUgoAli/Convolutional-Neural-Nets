@@ -87,11 +87,6 @@ class LeNet(nn.Module):
                                 acc = accuracy_fn(y, y_pred)
                                 print(f"Accuracy: {acc}")
 
-              
-        def eval(self, testloader, accuracy_fn=None):
-                self.eval()
-                return {"Name": self.__class__.__name__,
-                        "Accuracy": acc}
 
         def predict(self, X, device='cpu'):
                 self.to(device)
